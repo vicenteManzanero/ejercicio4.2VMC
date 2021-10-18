@@ -1,0 +1,14 @@
+.tabla{
+    margin: auto;
+    text-align: center;
+}
+button{
+    margin-top: 2rem;
+    padding: 20px;
+}
+body{
+    text-align: center;
+}
+.primo{
+    background-color: red;
+}
