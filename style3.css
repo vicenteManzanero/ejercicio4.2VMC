@@ -1,0 +1,16 @@
+p{
+    width: 90%;
+    height: 10%;
+    border: 1px solid;
+    padding: 10px;
+    text-align: justify;
+    color: blanchedalmond;
+    background-color: grey;
+}
+.oculto{
+    visibility: hidden;
+}
+.eliminado{
+    display: none;
+}
+

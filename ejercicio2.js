@@ -50,14 +50,13 @@ function genera_tabla() {
   tabla.setAttribute("class", "tabla");
 }
 
-function esPrimo(numero) {
-  for (let i = 2; i < numero; i++) {
-    if (numero % i === 0) {
-      return false;
+function esPrimo(num) {
+  for (var i = 2; i < num; i++) {
+    if (num%i==0){
+        return false;
     }
-  }
-
-  return numero !== 1;
+};
+return true;
 }
 
 function calcularPrimo() {
@@ -73,13 +72,11 @@ function calcularPrimo() {
       var hilera = document.createElement("tr");
   
       for (var j = 1; j <= 10; j++) {
-        // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-        // texto sea el contenido de <td>, ubica el elemento <td> al final
-        // de la hilera de la tabla
+
         var celda = document.createElement("td");
         var textoCelda = document.createTextNode(esPrimo(acumulador));
-        if (textoCelda) {
-            doc.getElementById(`acumulador`).setAttribute("class","primo");
+        if (textoCelda.textContent == "true") {
+            doc.getElementById(`${acumulador}`).setAttribute("class","primo");
         }
         
         celda.appendChild(textoCelda);
@@ -90,14 +87,5 @@ function calcularPrimo() {
       // agrega la hilera al final de la tabla (al final del elemento tblbody)
       tblBody.appendChild(hilera);
     }
-  
-    // posiciona el <tbody> debajo del elemento <table>
-    tabla.appendChild(tblBody);
-    // appends <table> into <body>
-    doc.body.appendChild(tabla);
-    // modifica el atributo "border" de la tabla y lo fija a "2";
-    tabla.setAttribute("border", "1");
-    tabla.setAttribute("class", "tabla");
-    
 }
 genera_tabla();
