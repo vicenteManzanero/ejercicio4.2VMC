@@ -20,11 +20,11 @@ function genera_tabla() {
   var tblBody = document.createElement("tbody");
 
   // Crea las celdas
-  for (var i = 1; i <= 10; i++) {
+  for (var i = 1; i <= 100; i++) {
     // Crea las hileras de la tabla
     var hilera = document.createElement("tr");
 
-    for (var j = 1; j <= 10; j++) {
+    for (var j = 1; j <= 100; j++) {
       // Crea un elemento <td> y un nodo de texto, haz que el nodo de
       // texto sea el contenido de <td>, ubica el elemento <td> al final
       // de la hilera de la tabla
@@ -67,11 +67,11 @@ function calcularPrimo() {
     var tblBody = document.createElement("tbody");
   
     // Crea las celdas
-    for (var i = 1; i <= 10; i++) {
+    for (var i = 1; i <= 100; i++) {
       // Crea las hileras de la tabla
       var hilera = document.createElement("tr");
   
-      for (var j = 1; j <= 10; j++) {
+      for (var j = 1; j <= 100; j++) {
 
         var celda = document.createElement("td");
         var textoCelda = document.createTextNode(esPrimo(acumulador));
