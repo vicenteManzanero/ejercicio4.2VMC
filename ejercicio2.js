@@ -13,79 +13,68 @@ rojo y el texto en negrita.
 */
 let doc = document;
 let acumulador = 1;
+
+
+//Esta función genera la tabla de 100 x 100.
 function genera_tabla() {
 
-  // Crea un elemento <table> y un elemento <tbody>
+  // Creo un elemento "table" y un elemento "tbody".
   var tabla = document.createElement("table");
   var tblBody = document.createElement("tbody");
 
-  // Crea las celdas
+  // Creo las celdas.
   for (var i = 1; i <= 100; i++) {
-    // Crea las hileras de la tabla
+    // Creo las hileras de la tabla.
     var hilera = document.createElement("tr");
 
     for (var j = 1; j <= 100; j++) {
-      // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-      // texto sea el contenido de <td>, ubica el elemento <td> al final
-      // de la hilera de la tabla
+      // Creo un elemento "td".
       var celda = document.createElement("td");
+      //Creo el texto de la variable acumulado a cada celda.
       var textoCelda = document.createTextNode(acumulador);
-      
+      //Añado el texto de la variable acumulado a cada celda.
       celda.appendChild(textoCelda);
-      celda.setAttribute("id",acumulador)
+      //Creo un atributo id con el valor de acumulador
+      celda.setAttribute("id", acumulador);
       hilera.appendChild(celda);
+      //Incremento el acumulador para que el significado de la celda y el id cambie.
       acumulador++;
     }
 
-    // agrega la hilera al final de la tabla (al final del elemento tblbody)
+    //Agrego los "td" en el elemento "tblbody".
     tblBody.appendChild(hilera);
   }
 
-  // posiciona el <tbody> debajo del elemento <table>
+  //Posiciono el <tbody> debajo del elemento <table>.
   tabla.appendChild(tblBody);
-  // appends <table> into <body>
   doc.body.appendChild(tabla);
-  // modifica el atributo "border" de la tabla y lo fija a "2";
+  //Modifico el atributo "border" de la tabla y lo fijo a "2";
   tabla.setAttribute("border", "1");
   tabla.setAttribute("class", "tabla");
 }
+//Con esta función evalua si un número es primo o no devolviendo true si lo es y false si no lo es.
 
 function esPrimo(num) {
   for (var i = 2; i < num; i++) {
-    if (num%i==0){
-        return false;
+    if (num % i == 0) {
+      return false;
     }
-};
-return true;
+  }
+  return true;
 }
-
+//La siguiente función recorre la tabla y evalúa si es primo. Si lo es, le da la clase primo que le da los estilos que pide el enunciado.
 function calcularPrimo() {
-    
-    let acumulador = 1;
-    // Crea un elemento <table> y un elemento <tbody>
-    var tabla = document.createElement("table");
-    var tblBody = document.createElement("tbody");
-  
-    // Crea las celdas
-    for (var i = 1; i <= 100; i++) {
-      // Crea las hileras de la tabla
-      var hilera = document.createElement("tr");
-  
-      for (var j = 1; j <= 100; j++) {
-
-        var celda = document.createElement("td");
-        var textoCelda = document.createTextNode(esPrimo(acumulador));
-        if (textoCelda.textContent == "true") {
-            doc.getElementById(`${acumulador}`).setAttribute("class","primo");
-        }
-        
-        celda.appendChild(textoCelda);
-        hilera.appendChild(celda);
-        acumulador++;
+  let acumulador = 1;
+  for (var i = 1; i <= 100; i++) {
+    for (var j = 1; j <= 100; j++) {
+      var textoCelda = document.createTextNode(esPrimo(acumulador));
+      if (textoCelda.textContent == "true") {
+        doc.getElementById(`${acumulador}`).setAttribute("class", "primo");
       }
-  
-      // agrega la hilera al final de la tabla (al final del elemento tblbody)
-      tblBody.appendChild(hilera);
+      acumulador++;
     }
+  }
 }
+
+
 genera_tabla();

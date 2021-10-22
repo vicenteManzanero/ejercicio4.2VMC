@@ -11,28 +11,34 @@ carpeta img de tu ejercicio.
 
 
 let doc = document;
-
-let imagenes = ["./img/1.jpeg","./img/2.jpeg","./img/3.jpeg","./img/4.jpeg"];
-
+//Creo el array de imágenes.
+let imagenes = ["./img/1.jpeg", "./img/2.jpeg", "./img/3.jpeg", "./img/4.jpeg"];
+//Creo la función.
 function mostrar() {
+    //Esto es el contador que va a recorrer las posiciones del array.
     let i = 0;
+    //Creo un "div".
     let div = doc.createElement("div");
+    //Lo pongo dentro del body.
     doc.body.appendChild(div);
+    //Creo un intervalo.
     setInterval(() => {
+        //Creo un elemento "img".
         let img = doc.createElement("img");
-        img.setAttribute("src",imagenes[i]);
-        img.setAttribute("width","250");
-        img.setAttribute("height","200");
+        //Le asigno el atributo "src" que apunta al array de "i" para que vaya cambiando de posición.
+        img.setAttribute("src", imagenes[i]);
+        //Le doy un ancho.
+        img.setAttribute("width", "250");
+        //Y un alto.
+        img.setAttribute("height", "200");
         div.innerHTML = img.outerHTML;
         i++;
-        if (i>=imagenes.length) {
-            i=0;
+        //Aquí le digo que si "i" llega al máximo del array, que lo ponga a "0" para volver a empezar desde el principio.
+        if (i >= imagenes.length) {
+            i = 0;
         }
+        //El 2000 quiere decir que cambie cada 2 segundos.
     }, 2000);
 
 }
-          mostrar();
-
-
-
-
+mostrar();
